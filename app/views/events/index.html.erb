@@ -1,0 +1,41 @@
+	
+	<html>
+	<head>
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+	</head>
+
+<h3> Test by Sam <h3>
+
+<table class="events", border="1">
+<tr>
+	<%#th colspan="3">My Bros</th--%>
+	<th>Name</th>
+	<th>ID</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Delete</th>
+	<th>Created Time</th>
+	<th>Modified Time</th>
+</tr>
+<% @events.each do |event| %>
+  <tr><li>
+    <td height="30", width="100"><%= link_to event.name %></td>
+	<td width="10"><%= event.id %></td>
+	<td width="100"><%= link_to 'show', event_path(event) %></td>
+    <td width="100"><%= link_to 'edit', edit_event_path(event) %></td>
+    <td width="100"><%= button_to 'delete', event_path(event), :method => :delete %></td>
+	
+	<td width="100"><%= event.created_at %></td>
+	<td width="100"><%= event.updated_at %></td>
+	
+  </li></tr>
+<% end %>
+
+</ul>
+</table>
+
+
+<p><%= Time.now %></p>
+<%= link_to 'new event', new_event_path %>
+
+	</html>

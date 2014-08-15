@@ -1,0 +1,16 @@
+<%# form_for @scode, :url => { :controller => 'scodes', :action => 'update', :id => @scode } do |f| %>
+<%= form_for @scode, :url => scode_path(@scode), :method => :put do |f| %>
+    <%= f.label :comment, "comment" %>
+    <%= f.text_field :comment %>
+
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description %>
+	
+    <%= f.label :content, "content" %>
+    <%= f.text_area :content %>	
+
+    <%= f.label :require, "require" %>
+    <%= f.text_area :require %>
+	
+    <%= f.submit "Update" %>
+<% end %>

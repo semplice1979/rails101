@@ -1,0 +1,16 @@
+<ul>
+<% @scodes.each do |line| %>
+  <li>
+  <%= line.description %>     <%= line.id %>   
+  <%= link_to 'Show', :controller => 'scodes', :action => 'show', :id => line %>
+  <%= link_to 'Edit', :controller => 'scodes', :action => 'edit', :id => line %>
+  <%# link_to 'Delete', :controller => 'scodes', :action => 'destroy', :id => line %>
+  <%# button_to 'delete', scode_path(line), :method => :delete %>
+  <%= link_to 'delete', scode_path(line), :method => :delete %>
+  <%= line.require %>
+  </li>
+<br>
+</ul>
+<% end %>
+<%# link_to 'New items', :controller => 'scodes', :action => 'new' %>
+<%= link_to 'new event', new_scode_path %>

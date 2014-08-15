@@ -1,0 +1,6 @@
+<%= @scode.comment %>
+<%= simple_format(@scode.description) %>
+<%= simple_format(@scode.content) %>
+<%= simple_format(@scode.require) %>
+<p><%# link_to 'Back to index', :controller => 'scodes', :action => 'index' %></p>
+<p><%= link_to 'back to index', scodes_path %></p>

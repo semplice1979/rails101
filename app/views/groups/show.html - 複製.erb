@@ -1,0 +1,26 @@
+<div class="span12">
+<div class="group pull-right">
+
+<%= link_to("Group Edit", edit_group_path(@group) , :class => "btn btn-mini ")%>
+
+
+</div>
+
+<h2> <%= "GROUP Title :" +  @group.title %> </h2>
+<p> <%= "Group Description :" + @group.description %> </p>
+
+<table class="table">
+<%= link_to("New Post", new_group_post_path(@group) , :class => "btn btn-minibtn-primary")%>
+<tbody>
+<% @posts.each do |post| %>
+<tr>
+<td> <%= post.content %> </td>
+<td> <%= link_to("Edit", edit_group_post_path(post.group, post), :class => "btn btn-mini")%>
+<%= link_to("Delete", group_post_path(post.group, post), :class => "btn btn-mini", :method => :delete, :confirm => "Are you sure?" ) %> </td>
+</tr>
+<% end %>
+</tbody>
+</table>
+
+<p><%= link_to 'back to index', groups_path %></p>
+</div>
