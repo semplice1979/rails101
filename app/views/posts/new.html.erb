@@ -1,12 +1,12 @@
-<div class="span12">
+<h1 class="text-center">NEW POST</h1>
 
-<%= form_for [@group,@post] do |f| %>
-<%= f.label :content, "Content" %>
-<%= f.text_field :content, :input_html => { :class => "input-xxlarge"} %>
+<div class="col-md-4 col-md-offset-4">
+  <%= simple_form_for [@group,@post] do |f| %>
+    <%= f.input :content, :input_html => { :class => "form-control"} %>
 
-<div class="form-actions">
-<%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary" %>
-</div>
-<% end %>
-
+    <hr>
+    <div class="form-actions">
+      <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary"%> 
+    </div>
+  <% end %> 
 </div>
