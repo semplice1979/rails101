@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
+  before_action :find_group
   before_action :login_required, :only => [:new, :create, :edit,:update,:destroy]
 def new
-    @group = Group.find(params[:group_id])
+    
     @post = @group.posts.new
 end
 def create
-    @group = Group.find(params[:group_id])
+    
     @post = @group.posts.new(post_params)
   
     if @post.save
@@ -15,13 +16,13 @@ def create
     end
 end
 def edit
-  #@group = Group.find(params[:group_id])
+  #
   #@post = @group.posts.find(params[:id])
-    @group = Group.find(params[:group_id])
+    
     @post = @group.posts.find(params[:id])
 end
 def update
-    @group = Group.find(params[:group_id])
+    
     @post = @group.posts.find(params[:id])
 
     if @post.update(post_params)
@@ -32,7 +33,7 @@ def update
 end
 
 def destroy
-    @group = Group.find(params[:group_id])
+    
     @post = @group.posts.find(params[:id])
 
     @post.destroy
@@ -45,5 +46,8 @@ private
   def post_params
     params.require(:post).permit(:content)
   end
-
+  def find_group
+      @group = Group.find(params[:group_id])
+  end  
+  
 end
