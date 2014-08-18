@@ -9,7 +9,7 @@ def create
     @post = @group.posts.new(post_params)
   
     if @post.save
-      redirect_to group_path(@group), :notice => 'Add POST is done¡I'
+      redirect_to group_path(@group), :notice => 'Add POST DONE'
     else
       render :new
     end
@@ -17,7 +17,7 @@ end
 def edit
   #@group = Group.find(params[:group_id])
   #@post = @group.posts.find(params[:id])
-      @group = Group.find(params[:group_id])
+    @group = Group.find(params[:group_id])
     @post = @group.posts.find(params[:id])
 end
 def update
@@ -25,15 +25,13 @@ def update
     @post = @group.posts.find(params[:id])
 
     if @post.update(post_params)
-      redirect_to group_path(@group), :notice => 'POST edit is done'
+      redirect_to group_path(@group), :notice => 'POST EDIT is done'
     else
       render :edit
     end
 end
 
 def destroy
-  #@group = Group.find(params[:group_id])
-  #@post = @group.posts.find(params[:id])
     @group = Group.find(params[:group_id])
     @post = @group.posts.find(params[:id])
 
@@ -44,7 +42,7 @@ end
 
 private
 
- def post_params
+  def post_params
     params.require(:post).permit(:content)
   end
 
