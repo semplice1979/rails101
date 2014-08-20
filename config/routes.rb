@@ -33,6 +33,10 @@ root :to => "welcome#index"
 	resources :scodes
 	
 resources :groups do
+     member do
+      post :join
+      post :quit
+    end
   resources :posts
 end
 	get "welcome/say_hello" => "welcome#say"

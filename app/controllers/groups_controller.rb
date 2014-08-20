@@ -16,7 +16,8 @@ def create
 	 @group = current_user.groups.new(group_params)
   
     if @group.save 
-      redirect_to groups_path, :notice => 'Add Group is done'
+      current_user.join!(@group)
+      redirect_to groups_path, :notice => 'ADD GROUP dONE'
     else
       render :new
     end
@@ -47,7 +48,31 @@ def destroy
    redirect_to groups_path, :alert => 'Delete Group'
 end
 
+  def join
+    @group = Group.find(params[:id])
 
+    if !current_user.is_member_of?(@group)
+      current_user.join!(@group)
+      flash[:notice] = "ADD GROUP DONE"
+    else
+      flash[:warning] = "You are the member of group"
+    end
+
+    redirect_to group_path(@group)
+  end
+
+  def quit
+    @group = Group.find(params[:id])
+
+    if current_user.is_member_of?(@group)
+      current_user.quit!(@group)
+      flash[:alert] = "logout POST"
+    else
+      flash[:warning] = "You are not the member XD"
+    end
+
+    redirect_to group_path(@group)
+  end
 private
 
 
