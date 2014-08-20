@@ -9,7 +9,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li> <%#= link_to("Login", '#') %> </li>
-
+            <li> <%= link_to("My Groups", account_groups_path) %></li> 
+            <li> <%= link_to("My Posts", account_posts_path) %></li> 
 		 <li> <%= link_to("LOG OUT", destroy_user_session_path,  :method => :delete ) %></li>
 		 <li><%= link_to("Account edit", edit_user_registration_path )%></li>
         <% if !current_user %>

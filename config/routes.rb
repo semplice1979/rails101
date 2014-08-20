@@ -42,6 +42,12 @@ end
 	get "welcome/say_hello" => "welcome#say"
     # ...
 	get "welcome" => "welcome#index"
+  
+  namespace :account do
+    resources :groups
+    resources :posts
+  end
+	
 	#get "events" => "events#index"
 	#match ':controller(/:action(/:id(.:format)))'
 	#match ':controller(/:action(/:id(.:format)))', :via => [:get] 
