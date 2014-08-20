@@ -1,16 +1,28 @@
+
 <ul>
+
 <% @scodes.each do |line| %>
-  <li>
-  <%= line.description %>     <%= line.id %>   
-  <%= link_to 'Show', :controller => 'scodes', :action => 'show', :id => line %>
-  <%= link_to 'Edit', :controller => 'scodes', :action => 'edit', :id => line %>
+
+<table border="1">
+<li>
+<tr> <%= "Desciption : " + line.description %>
+
+<td width="20"><%= line.id %></td>
+
+<td width="200"><%= line.require %></td>  
+  <td><%= link_to 'Show', :controller => 'scodes', :action => 'show', :id => line %></td>
+  <td><%= link_to 'Edit', :controller => 'scodes', :action => 'edit', :id => line %></td>
   <%# link_to 'Delete', :controller => 'scodes', :action => 'destroy', :id => line %>
   <%# button_to 'delete', scode_path(line), :method => :delete %>
-  <%= link_to 'delete', scode_path(line), :method => :delete %>
-  <%= line.require %>
-  </li>
-<br>
-</ul>
+  <td><%= link_to 'delete', scode_path(line), :method => :delete %></td>
+
+ </tr>
 <% end %>
+</table>
+</li>
+</ul>
+
+
+
 <%# link_to 'New items', :controller => 'scodes', :action => 'new' %>
 <%= link_to 'new event', new_scode_path %>

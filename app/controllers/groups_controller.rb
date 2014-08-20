@@ -12,7 +12,8 @@ def new
   @group = Group.new
 end
 def create
-    @group = Group.new(group_params)
+    #@group = Group.new(group_params)
+	 @group = current_user.groups.new(group_params)
   
     if @group.save 
       redirect_to groups_path, :notice => 'Add Group is done'
@@ -22,7 +23,8 @@ def create
 end
 
 def edit
-@group = Group.find(params[:id])
+#@group = Group.find(params[:id])
+@group = current_user.groups.find(params[:id])
 #@post = @group.posts.find(params[:id])
 end
 
@@ -39,8 +41,8 @@ end
 
 
 def destroy
-   @group = Group.find(params[:id])
-    
+   #@group = Group.find(params[:id])
+    @group = current_user.groups.find(params[:id])
    @group.destroy
    redirect_to groups_path, :alert => 'Delete Group'
 end
