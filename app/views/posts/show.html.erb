@@ -1,13 +1,52 @@
-<h1 class="text-center">NEW POST</h1>
 
-<div class="col-md-4 col-md-offset-4">
-  <%= simple_form_for [@group,@post] do |f| %>
-    <%= f.input :content, :input_html => { :class => "form-control"} %>
+<%#table style="border: 5px double rgb(109, 2, 107); height: 100px; background-color: rgb(255, 255, 255); width: 300px;" align="left" cellpadding="5" cellspacing="5" frame="border" rules="all" %>
 
-    <hr>
-    <div class="form-actions">
-      <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary"%> 
-    </div>
-  <% end %> 
-  
-</div>
+<table border="1", align="center">
+    <thead>
+      <tr>
+        <th width="80">POST ID</th>
+        <th> <%= @post.id %></th>
+      </tr>
+    </thead>
+
+<tr>
+<td>category</td>	
+<td width="500", text-align="center">
+<%= simple_format(@post.category) %></td>
+</tr>
+
+<tr>
+<td>content</td>	
+<td text-align="center"><b>
+<%= simple_format(@post.content) %></b></td>
+</tr>
+
+<tr>
+<td>瀏覽器</td>	
+<td text-align="center"><%= simple_format(@post.explorer) %></td>
+</tr>
+
+<tr>
+<td>url</td>
+<td>
+<% url = @post.url %><u>
+<%= link_to "#{url}", "#{url}" %></u>
+</td></tr>
+
+<tr>
+<td>status</td>	
+<td width="100"><%= simple_format(@post.status) %></td>
+</tr>
+
+
+<tr>
+<td>comment</td>	
+<td width="100"><%= simple_format(@post.comment) %></td>
+</tr>
+
+</table>
+
+<%= f.select :status, Post.all.map{ |c| [c.id, c.comment] } %>
+ 
+<p><%= link_to 'Back to index', :controller => 'groups', :action => 'index' %></p>
+<p><%# link_to 'back to index', posts_path %></p>

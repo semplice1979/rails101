@@ -1,19 +1,22 @@
 <div class="col-md-12">
   <div class="group">
     <%= link_to("New Post", new_group_post_path(@group) , :class => "btn btn-warning pull-right")%>
+
     <% if @group.editable_by?(current_user) %>
       <%= link_to("Edit", edit_group_path(@group) , :class => "btn btn-primary pull-right") %>
     <% end %>
+
 	    <% if !current_user.nil? %>
       <% if current_user.is_member_of?(@group) %>
-        <%= link_to("Quit Group", quit_group_path(@group), :method => :post, :class => "btn btn-info") %>
+        <% quit_group = "Now at GROUP : " + "#{@group.title}" %>
+        <%= link_to("#{quit_group}" , quit_group_path(@group), :method => :post, :class => "btn btn-info") %>
       <% else %>
         <%= link_to("Join Group", join_group_path(@group), :method => :post, :class => "btn btn-info") %>
       <% end %>
     <% end %>
   </div>
-  <h2> <%= @group.title %> </h2>
-  <p> <%= @group.description %> </p> 
+
+  
   
   <table class="table">
     <thead>
@@ -23,11 +26,31 @@
       </tr>
     </thead>
     <tbody>
+  <tr>
+<td>id</td>
+      <td>category</td>
+      <td>content</td>
+      <td>created_at</td>
+      <td>status</td>
+      <td>comment</td>
+  </tr>
+
       <% @posts.each do |post| %> 
         <tr>
-          <td> <%= post.content %> </td>
+      <td>      <%= link_to("#{post.id}", 
+                          group_post_path(post.group, post), 
+                          :class => "btn btn-default btn-xs")%>
+        </td>
+      <td> <%= post.category %> </td>
+		  <td> <b><%= post.content %></b> </td>
+      <% puts a = post.created_at.to_s  %>
+      <td> <%= a[0..10] %> </td>
+		  <td> <%= post.status %> </td>
+      <td> <%= post.comment %> </td>
+		  
           <td>
-      		  <% if current_user && post.editable_by?(current_user) %>
+			  
+            <% if current_user && post.editable_by?(current_user) %>
               <%= link_to("Edit", 
                           edit_group_post_path(post.group, post), 
                           :class => "btn btn-default btn-xs")%>
@@ -43,3 +66,5 @@
     </tbody>
   </table>
 </div>
+
+<p><%= link_to 'Back to GROUP page', :controller => 'groups', :action => 'index' %></p>
