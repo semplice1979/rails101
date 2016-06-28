@@ -21,7 +21,6 @@ def create
 
   redirect_to events_url
 end
-
 def show
   @event = Event.find(params[:id])
   @page_title = @event.name
@@ -48,7 +47,6 @@ def destroy
   redirect_to events_url
 end
 end
-#protected
 private
 def event_params
 params.require(:event).permit(:name, :description, :name)

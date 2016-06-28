@@ -1,52 +1,81 @@
 
 <%#table style="border: 5px double rgb(109, 2, 107); height: 100px; background-color: rgb(255, 255, 255); width: 300px;" align="left" cellpadding="5" cellspacing="5" frame="border" rules="all" %>
+  <style type="text/css">
+    /* Some custom styles to beautify this example */
+    .demo-content{
+        padding: 15px;
+        font-size: 18px;
+        min-height: 200px;
+        background: #dbdfe5;
+        margin-bottom: 10px;
+    }
+    .demo-content.bg-alt{
+        background: #abb1b8;
+    }
+  </style>
+    <% check_status = 0 %>
+    <% if @post.status == "open" %>
+    <% check_status = 1 %>
+      <div class="alert alert-danger">
+        <strong width="150"><%= @post.id %></strong>   
+        <label><%= @post.summary %></label>  
+      </div>
+    <% end %>
 
-<table border="1", align="center">
-    <thead>
-      <tr>
-        <th width="80">POST ID</th>
-        <th> <%= @post.id %></th>
-      </tr>
-    </thead>
+    <% if @post.status == "close" %>
+    <% check_status = 1 %>      
+      <div class="alert alert-success">
+        <strong><%= @post.id %></strong>
+        <label><%= @post.summary %></label>
+      </div>
+    <% end %>
 
-<tr>
-<td>category</td>	
-<td width="500", text-align="center">
-<%= simple_format(@post.category) %></td>
-</tr>
+    <% if @post.status == "suggest" %>
+    <% check_status = 1 %>   
+      <div class="alert alert-warning">
+        <strong><%= @post.id %></strong>
+        <label> <%= @post.summary %></label>
+      </div>
+    <% end %>
 
-<tr>
-<td>content</td>	
-<td text-align="center"><b>
-<%= simple_format(@post.content) %></b></td>
-</tr>
-
-<tr>
-<td>瀏覽器</td>	
-<td text-align="center"><%= simple_format(@post.explorer) %></td>
-</tr>
-
-<tr>
-<td>url</td>
-<td>
-<% url = @post.url %><u>
-<%= link_to "#{url}", "#{url}" %></u>
-</td></tr>
-
-<tr>
-<td>status</td>	
-<td width="100"><%= simple_format(@post.status) %></td>
-</tr>
-
-
-<tr>
-<td>comment</td>	
-<td width="100"><%= simple_format(@post.comment) %></td>
-</tr>
-
-</table>
-
-<%= f.select :status, Post.all.map{ |c| [c.id, c.comment] } %>
- 
+    <% if check_status == 0 %>
+      <div class="alert alert-info">
+        <strong><%= @post.id %></strong>
+        <label><%= @post.summary %></label>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col-xs-7">
+        <div class="demo-content"> 問題描述
+        <tr>
+          <%= simple_format(@post.category) %>                
+          <td width="700", text-align="center"><b>
+          <%= simple_format(@post.content) %></b></td>
+        </tr>
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <div class="demo-content bg-alt">
+            <label>
+            <%= simple_format("使用平台: " + "#{@post.explorer.to_s}") %>
+            <%= simple_format("優先性: "   + "#{@post.priority.to_s}") %> 
+            <%= simple_format("狀態:   "   + "#{@post.status.to_s}") %>   
+            <%= simple_format("提報人: "   + "#{@post.reporter.to_s}") %>
+            <%= simple_format("創建日期: " + "#{@post.created_at.to_s}") %>
+            </label> 
+        </div>
+      </div>
+    </div>
+    <%# f.select :status, Post.all.map{ |c| [c.id, c.comment] } %>
+    <div class="row">
+      <div class="col-xs-10">
+        <div class="demo-content"> 
+          <tr>
+            <td width="700", text-align="center"><b>URL<%= simple_format(@post.url) %></b></td>
+            <td width="700", text-align="center">COMMENT<b><%= simple_format(@post.comment) %></b></td>
+          </tr>
+        </div>
+      </div>
+    </div>
 <p><%= link_to 'Back to index', :controller => 'groups', :action => 'index' %></p>
-<p><%# link_to 'back to index', posts_path %></p>
+

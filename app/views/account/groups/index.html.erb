@@ -1,7 +1,5 @@
 <div class="col-md-12">
-  
   <h2 class="text-center"> The group that I'm join </h2>
-  
   <table class="table">
     <thead>
       <tr>
@@ -10,20 +8,23 @@
         <th> Description </th>
         <th> Post Count </th>
         <th> Last Update </th>
+        <th> test  </th>
       </tr>
     </thead>
-    
     <tbody>
       <% @groups.each do |group| %>
         <tr>
           <td> # </td>
-
           <td> <%= link_to(group.title, group_path(group)) %> </td> 
+          <%#= link_to(group.title, group_path(group)) %> 
           <td> <%= group.description %> </td> 
           <td> <%= group.posts.count %> </td> 
           <td> <%= group.updated_at %> </td> 
+          <td> <%#= group.group_user %> </td>
         </tr>
       <% end %>
+
     </tbody>
   </table>
 </div>
+<p><%#= link_to 'Back to GROUP page', :controller => 'groups', :action => 'index' %></p>

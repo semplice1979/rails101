@@ -1,18 +1,15 @@
 <div class="span12">
 
-
 <%= simple_form_for @group do |f| %>
-<%= f.input :title, :input_html => { :class => "input-xxlarge"} %>
-<br>
-<%= f.input :description, :input_html => { :class => "input-xxlarge"} %>
-  
- 
-  
-<div class="form-actions">
-<%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary" %>
-</div>
- <% end %>
+  <%= f.input :title, :input_html => { :class => "input-xxlarge"} %>
+  <%= f.input :description, :input_html => { :class => "input-xxlarge"} %>
+  <%#= f.input :user_id, :input_html => { :class => "input-xxlarge"} %>
 
- </div>
+  <div class="form-actions">
+    <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary" %>
+  </div>
+<% end %>
+
+</div>
  
  

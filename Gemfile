@@ -44,5 +44,7 @@ gem 'devise'
 
 gem 'bootstrap-sass'
 
+gem 'bootstrappers'
+
 gem 'simple_form'
 

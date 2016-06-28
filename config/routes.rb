@@ -29,9 +29,10 @@ Rails.application.routes.draw do
   #     end
   #   end
 root :to => "welcome#index"
-    resources :events
-	resources :scodes
-	
+  resources :events
+  resources :scodes
+  resources :users
+
 resources :groups do
      member do
       post :join
@@ -40,8 +41,10 @@ resources :groups do
   resources :posts
 end
 	get "welcome/say_hello" => "welcome#say"
-    # ...
 	get "welcome" => "welcome#index"
+  #get "groups/filter" => "groups#filter"
+  get "groups/close/:id" => "groups#close"
+  #get "users" => "users#index"
   
   namespace :account do
     resources :groups

@@ -1,0 +1,28 @@
+<%#= 111 %>
+
+<table border="1">
+  <tbody>
+    <% @user.each do |p| %>
+      <tr>
+        <td width="30"> <%= p.id %>   </td>
+        <td width="300"><%= link_to(p.email, user_path(p)) %></td>
+        <td width="100"><%= p.name %></td>
+        
+        <td> <%#= link_to 'show', :controller => 'users', :action => 'show' %> </td>
+        <td> <%#= link_to("Edit", edit_user_path(user), :class => "btn btn-mini") %>
+        <td>
+              <%= link_to("Edit", 
+                          edit_user_path(p), 
+                          :class => "btn btn-sm btn-default")%>
+          <%#= link_to('Delete', 
+                          group_post_path(post.group, post),
+                          :method => :delete, 
+                          data: { confirm: "Are you sure?" },
+                          :class => "btn btn-danger btn-xs") %>
+                          </td>
+      </tr>
+    <% end %>
+    <%#= link_to("New user", new_user_path , :class => "btn btn-primary pull-right" ) %>
+  </tbody>
+</table>
+

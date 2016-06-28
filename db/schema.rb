@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925105350) do
+ActiveRecord::Schema.define(version: 20151224064224) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -71,6 +71,9 @@ ActiveRecord::Schema.define(version: 20140925105350) do
     t.string   "comment"
     t.string   "verify_date"
     t.string   "check_result"
+    t.string   "summary"
+    t.string   "reporter"
+    t.integer  "priority"
   end
 
   create_table "samcodes", force: true do |t|
