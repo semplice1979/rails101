@@ -1,7 +1,8 @@
 == README
 
-account1 : user_experience@yes123.com.tw ：12345678
-account2 : example@gmail.com：12345678
+account1 : user_experience@yes123.com.tw   password：12345678
+
+account2 : example@gmail.com               password：12345678
 
 
 
