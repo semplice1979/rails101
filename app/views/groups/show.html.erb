@@ -41,8 +41,11 @@
         <td width="100">created_at</td>
         <% if @group.editable_by?(current_user) %>
           <td width="300">comment</td>
+          <td width="150">Edit</td>
+
         <% else %>
-          <td width="400">comment</td>      
+          <td width="400">comment</td>   
+          <td width="100">Edit</td>   
         <% end %>      
       </tr>
     <tr>
@@ -55,17 +58,20 @@
       <td></td>
     </tr> 
     <% @close_item = [0] %>
-    <% c = 0 %>
+    <% @sugg_item = [0] %>
+
+    <% c1 = 0 %>
+    <% c2 = 0 %>
     <% @posts.each do |post| %> 
       <% if post.status == "close" %>
-        <% @close_item[c] = post.id %>
-        <% c = c + 1 %>
+        <% @close_item[c1] = post %>
+        <% c1 = c1 + 1 %>
         <% next %>
       <% end %>
 
       <% if post.status == "suggest" %>
-        <% @close_item[c] = post.id %>
-        <% c = c + 1 %>
+        <% @sugg_item[c2] = post %>
+        <% c2 = c2 + 1 %>
         <% next %>
       <% end %>
 
@@ -99,7 +105,18 @@
       <% end %> 
     </tr>
     <% end %>      
-    <li>  <%= @close_item %> </li>
+
+    <li> close_item </li>
+    <% @close_item.each do |post| %>
+      <% "close_item" %><%= link_to("#{post.id}",
+          group_post_path(post.group, post), 
+          :class => "btn btn-default btn-xs")%>  <% end %>
+   
+    <li> suggest_item </li>
+    <% @sugg_item.each do |post| %>
+      <% "close_item" %><%= link_to("#{post.id}",
+          group_post_path(post.group, post), 
+          :class => "btn btn-default btn-xs")%>  <% end %>
     </tbody>
   </table>
 </div>
