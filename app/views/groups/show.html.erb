@@ -57,11 +57,9 @@
       <td></td>
       <td></td>
     </tr> 
-    <% @close_item = [0] %>
-    <% @sugg_item = [0] %>
+    <% @close_item = [] %>     <% @sugg_item = [] %>
 
-    <% c1 = 0 %>
-    <% c2 = 0 %>
+    <% c1 = 0 %>       <% c2 = 0 %>  
     <% @posts.each do |post| %> 
       <% if post.status == "close" %>
         <% @close_item[c1] = post %>
@@ -105,9 +103,13 @@
       <% end %> 
     </tr>
     <% end %>      
+  <%# @close_item.each do |post| %>
+  <%# post.id %>
 
     <li> close_item </li>
     <% @close_item.each do |post| %>
+    <%# if post.id < 1000 %>
+    <%# next %> <%# end %>
       <% "close_item" %><%= link_to("#{post.id}",
           group_post_path(post.group, post), 
           :class => "btn btn-default btn-xs")%>  <% end %>
@@ -116,7 +118,8 @@
     <% @sugg_item.each do |post| %>
       <% "close_item" %><%= link_to("#{post.id}",
           group_post_path(post.group, post), 
-          :class => "btn btn-default btn-xs")%>  <% end %>
+          :class => "btn btn-default btn-xs")%>  <% end %>  
+
     </tbody>
   </table>
 </div>

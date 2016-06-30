@@ -1,6 +1,6 @@
 <div class="col-md-12">
 
-  <th font="34"> <b>結案區</b></th>
+  <th class="text-center"> <b>結案區</b></th>
 
 
   <div class="group">
@@ -13,8 +13,9 @@
         <td width="80">category</td>
         <td width="400">content</td>
         <td width="100">status</td>      
-        <td width="10"><%# created_at %> </td>
-        <td width="400">comment</td>      
+        
+        <td width="400">comment</td>
+        <td width="150">Edit</td>           
       </tr>
       <tr>
         <td> 
@@ -27,15 +28,9 @@
         <td>
                   <%= select_tag "product", options_for_select(@products, @selected_product) %>
         </td>      
-        <td><%# created_at %>
+        <td><%= @selected_product %>
           
          </td>
-        <td><%#= @selected_product %>
-        <%= "play fun" %>
-        <%#= @selected_product.key %>
-        <%#= @selected_product.value %>
-
-        </td>      
       </tr>
 
   <% @posts.each do |post| %> 
@@ -56,9 +51,7 @@
       <td>    <%= post.category %> </td>
       <td>    <%= post.content %>  </td>
       <td>    <%= post.status %>   </td>
-      <td>    
-      <%#  a = post.created_at.to_s  %>
-      <%#= a[2..10] %> </td>
+
       <% if @group.editable_by?(current_user) %>
         <td><%= post.comment %></td>
         <td>

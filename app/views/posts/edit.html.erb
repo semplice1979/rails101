@@ -11,7 +11,7 @@
     <%= f.select(:status, options_for_select([['status', 'status'],['open', 'open'], ['fix', 'fix'],['verify', 'verify'], ['close', 'close'], ['suggest', 'suggest']], @post.status)) %>
 
     <br>  <label> <%= "Reporter" %> </label>      
-    <%= f.select(:reporter, options_for_select([['Reporter', 'Reporter'], ['Sam', 'Sam'],['星同', '星同'], ['曼萍', '曼萍'],['小谷', '小谷'], ['思文', '思文']], @post.reporter)) %>    
+    <%= f.select(:reporter, options_for_select([['Reporter', 'Reporter'], ['Sam', 'Sam'],['星同', '星同'], ['曼萍', '曼萍'],['小谷', '小谷'], ['思文', '思文'],['曉玲','曉玲'], ['Henry','Henry']], @post.reporter)) %>    
 
     <%= f.input :summary, :input_html  => { :class => "form-control"} %>  
     <%= f.input :content, :input_html  => { :class => "form-control"} %>

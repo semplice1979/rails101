@@ -6,13 +6,15 @@
     <thead>
       <tr>
         <th width="50">id</th>
+        <th width="80">Platform </th>
+        <th width="40">Pri. </th>        
         <th width="100"> Group Name </th>
         <th width="500"> Content </th>
-        <td width="100">status</td>
+        <th width="100">status</th>
 
         <th width="100"> Last Update </th>
-        <td width="400">comment</td>
-        <td width="150">Edit</td>
+        <th width="400">comment</th>
+        <th width="150">Edit</th>
         <th width="500"> </th>
         <th colspan="2"></th>
 
@@ -26,7 +28,8 @@
           <%= link_to("#{post.id}", 
                 group_post_path(post.group, post), 
                 :class => "btn btn-default btn-xs")%>  </td>         
-
+      <td>    <%= post.explorer %> </td>
+      <td>    <%= post.priority %> </td>
           <td> <%= post.group.title %> </td>                 
           <td> <%= post.content %>     </td> 
           <td> <%= post.status %>      </td>
