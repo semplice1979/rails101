@@ -7,30 +7,23 @@
   <table class="table">
     <tbody>
       <tr>
-        <td width="50">id</td>
-        <td width="60">Platform </td>
-        <td width="40">Pri </td>
-        <td width="80">category</td>
-        <td width="400">content</td>
-        <td width="100">status</td>      
-        
-        <td width="400">comment</td>
-        <td width="150">Edit</td>           
+        <td width="50">  id         </td>
+        <td width="60">  Platform   </td>
+        <td width="40">  Pri        </td>
+        <td width="80">  category   </td>
+        <td width="400"> content    </td>
+        <td width="100"> status     </td>      
+        <td width="400"> comment    </td>
+        <td width="150"> Edit       </td>           
       </tr>
       <tr>
-        <td> 
-        <%#= select_tab "status", option_for_select(@product.map { |value| }) %>
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-                  <%= select_tag "product", options_for_select(@products, @selected_product) %>
-        </td>      
-        <td><%= @selected_product %>
-          
-         </td>
+        <td>   </td>
+        <td>   </td>
+        <td>   </td>
+        <td>   </td>
+        <td>   </td>
+        <td>   <%= select_tag "product", options_for_select(@products, @selected_product) %>   </td>  
+        <td>   <%= @selected_product %>     </td>
       </tr>
 
   <% @posts.each do |post| %> 
