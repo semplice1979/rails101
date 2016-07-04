@@ -1,7 +1,32 @@
 Rails.application.routes.draw do
+
   devise_for :users
   resources :people
+  root :to => "welcome#index"
+  resources :events
+  resources :scodes
+  resources :users
 
+  resources :groups do
+    member do
+      post :join
+      post :quit
+    end
+    resources :posts
+  end
+
+  get "welcome/say_hello" => "welcome#say"
+  get "welcome" => "welcome#index"
+  #get "groups/filter" => "groups#filter"
+  get "groups/close/:id" => "groups#close"
+  #get "users" => "users#index"
+  
+  namespace :account do
+    resources :groups
+    resources :posts
+  end
+
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -28,34 +53,12 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-root :to => "welcome#index"
-  resources :events
-  resources :scodes
-  resources :users
 
-resources :groups do
-     member do
-      post :join
-      post :quit
-    end
-  resources :posts
-end
-	get "welcome/say_hello" => "welcome#say"
-	get "welcome" => "welcome#index"
-  #get "groups/filter" => "groups#filter"
-  get "groups/close/:id" => "groups#close"
-  #get "users" => "users#index"
-  
-  namespace :account do
-    resources :groups
-    resources :posts
-  end
-	
-	#get "events" => "events#index"
-	#match ':controller(/:action(/:id(.:format)))'
-	#match ':controller(/:action(/:id(.:format)))', :via => [:get] 
-	#match ':controller(/:action)', :via => [:get] 
-	#match 'gallery_:id' => 'gallery#show', :via => [:get], :as => 'gallery_show'
+  #get "events" => "events#index"
+  #match ':controller(/:action(/:id(.:format)))'
+  #match ':controller(/:action(/:id(.:format)))', :via => [:get] 
+  #match ':controller(/:action)', :via => [:get] 
+  #match 'gallery_:id' => 'gallery#show', :via => [:get], :as => 'gallery_show'
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
@@ -83,4 +86,3 @@ end
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end

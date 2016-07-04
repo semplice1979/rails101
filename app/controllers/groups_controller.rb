@@ -1,29 +1,26 @@
 class GroupsController < ApplicationController
-
 before_action :authenticate_user!
 before_action :login_required, :only => [:new, :create, :edit,:update,:destroy]
-def index
-  @groups = Group.all
-end
-def show
-  @group = Group.find(params[:id])
-  @posts = @group.posts
-  @fil = params[:postfil]
-end
-
-def close
-  @group = Group.find(params[:id])
-  @posts = @group.posts
-  @products = %w(open fix verify suggest close)
-  @selected_product = params[:product]
+  def index
+    @groups = Group.all
+  end
+  def show
+    @group = Group.find(params[:id])
+    @posts = @group.posts
+    @fil = params[:postfil]
+  end
+  def close
+    @group = Group.find(params[:id])
+    @posts = @group.posts
+    @products = %w(open fix verify suggest close)
+    @selected_product = params[:product]
+  end
   #@posts = @group.posts
   #@fil = params[:postfil]
-end
-
-def new
-  @group = Group.new
-end
-def create
+  def new
+    @group = Group.new
+  end
+  def create
     #@group = Group.new(group_params)
 	 @group = current_user.groups.new(group_params)
     if @group.save 
@@ -32,20 +29,20 @@ def create
     else
       render :new
     end
-end
-def edit
-#@group = Group.find(params[:id])
-@group = current_user.groups.find(params[:id])
-#@post = @group.posts.find(params[:id])
-end
-def update
+  end
+  def edit
+    @group = current_user.groups.find(params[:id])
+  end
+  #@group = Group.find(params[:id])
+  #@post = @group.posts.find(params[:id])
+  def update
     @group = Group.find(params[:id])
     if @group.update(group_params)
       redirect_to groups_path, :notice => 'Edit Group is done'
     else
       render :edit
     end
-end
+  end
   def filter
     @group = Group.find(params[:id])
     @posts = @group.posts
