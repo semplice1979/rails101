@@ -1,0 +1,75 @@
+    
+  <h2 class="text-center"> <b>Close Area</b></h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+
+        <th colspan="">  </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td width="50">  id            </td>
+        <td width="80">  Platform      </td>
+        <td width="40">  Pri.          </td>
+        <td width="80">  category      </td>
+        <td width="400"> content       </td>
+        <td width="100"> status        </td>
+        <td width="100"> created_at    </td>
+        <td width="300"> comment       </td>
+        <td width="150"> Edit          </td>
+      </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>  
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr> 
+
+    <% @posts.each do |post| %> 
+      <% if post.status == "close" %>
+      <% else %>
+        <% if post.status == "suggest" %>
+        <% else %>
+          <% next %>
+        <% end %>
+      <% end %>
+      <tr>
+      <td>
+          <%= link_to("#{post.id}",
+                group_post_path(post.group, post),
+                :class => "btn btn-default btn-xs")%>  </td>
+      <td>    <%= post.explorer %> </td>
+      <td>    <%= post.priority %> </td>
+      <td>    <%= post.category %> </td>
+      <td>    <%= post.content %>  </td>
+      <td>    <%= post.status %>   </td>
+      <td>    
+      <%  a = post.created_at.to_s  %>
+      <%= a[2..10] %> </td>
+      
+        <td><%= post.comment %></td>
+        <td>
+        <%= link_to('Edit', 
+                  edit_group_post_path(post.group, post),
+                  :class => "btn btn-info btn-xs") %>
+        <%= link_to('Delete', 
+                  group_post_path(post.group, post),
+                  :method => :delete, 
+                  data: { confirm: "Are you sure?" },
+                  :class => "btn btn-danger btn-xs") %>
+        </td>
+      
+      
+      
+    </tr>
+    <% end %> 
+
+
+
+    </tbody>
+  </table>

@@ -6,5 +6,10 @@ class Account::PostsController < ApplicationController
     @posts = current_user.posts.order("id DESC")
   end
 
+  def show 
+  	@posts = current_user.posts
+  end
+  
+
 end
 

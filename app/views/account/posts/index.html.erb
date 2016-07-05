@@ -1,7 +1,7 @@
 <div class="col-md-12">
 
   <h2 class="text-center"> The POST that I've post 
-  <%= link_to 'Back to GROUP page', { :controller => '/account/groups', :action => 'index' }, :class => "btn btn-default btn-xs"  %>
+  <%= link_to '結案區', { :controller => '/account/posts', :action => 'closed' }, :class => "btn btn-default btn-xs"  %>
   </h2>
   <%#= link_to 'Close item!', { :controller => "/account/groups" :action => 'index'} %>
   <table class="table">
@@ -75,3 +75,5 @@
     </tbody>
   </table>
 </div>
+
+ <%= link_to 'Back to Group', { :controller => '/groups', :action => 'index' }, :class => "btn btn-default btn-xs"  %>

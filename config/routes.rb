@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   namespace :account do
     resources :groups
     resources :posts
+      get "/posts/closed" => "posts#closed"
   end
 
 end
