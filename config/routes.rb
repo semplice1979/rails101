@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
+  root :to => "welcome#index"
   devise_for :users
   resources :people
-  root :to => "welcome#index"
   resources :events
   resources :scodes
   resources :users
@@ -17,8 +17,8 @@ Rails.application.routes.draw do
 
   get "welcome/say_hello" => "welcome#say"
   get "welcome" => "welcome#index"
-  #get "groups/filter" => "groups#filter"
   get "groups/close/:id" => "groups#close"
+  #get "groups/filter" => "groups#filter"  
   #get "users" => "users#index"
   
   namespace :account do
