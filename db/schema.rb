@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20151224064224) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status"
+    t.integer  "index"
     t.integer  "category_id"
   end
 
@@ -46,7 +47,7 @@ ActiveRecord::Schema.define(version: 20151224064224) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "posts_count"
+    t.integer  "posts_count", default: 0
   end
 
   create_table "people", force: true do |t|
@@ -74,16 +75,6 @@ ActiveRecord::Schema.define(version: 20151224064224) do
     t.string   "summary"
     t.string   "reporter"
     t.integer  "priority"
-  end
-
-  create_table "samcodes", force: true do |t|
-    t.integer  "index"
-    t.string   "name"
-    t.text     "description"
-    t.text     "require"
-    t.integer  "version"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "scodes", force: true do |t|
