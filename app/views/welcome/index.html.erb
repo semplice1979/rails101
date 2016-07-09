@@ -1,14 +1,20 @@
 <p>Hola! It's <%= Time.now %></p>
-<p><%= link_to 'Hello!', welcome_say_hello_path %></p>
+
 
       <% if !current_user %>
         <%# If need add new user to un comment this line %>
         <%#= link_to("REGIS", new_user_registration_path) %> 
         <li> <%= link_to("LOGIN", new_user_session_path) %> </li>
       <% else %>
+        <p><%= link_to 'Hello!', welcome_say_hello_path %></p>
         <li><%= link_to("My Groups" , account_groups_path) %></li>
         <li><%= link_to("My Posts"  , account_posts_path) %></li>
         <li><%= link_to("Area"    , groups_path) %></li>
+
+        <br></br>
+        <%= "NEW AREA" %>
+        <li><%= link_to("Scodes"    , scodes_path) %></li>
+        <li><%= link_to("People"    , people_path) %></li>
       <% end %>
 
 <% if false %>

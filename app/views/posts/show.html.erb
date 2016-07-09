@@ -1,4 +1,4 @@
-
+  
 <%#table style="border: 5px double rgb(109, 2, 107); height: 100px; background-color: rgb(255, 255, 255); width: 300px;" align="left" cellpadding="5" cellspacing="5" frame="border" rules="all" %>
   <style type="text/css">
     /* Some custom styles to beautify this example */
@@ -17,8 +17,10 @@
     <% if @post.status == "open" %>
     <% check_status = 1 %>
       <div class="alert alert-danger">
-        <strong width="150"><%= @post.id %></strong>   
-        <label><%= @post.summary %></label>  
+        <strong><%= @post.id %></strong>   
+        <label width="500"><%= @post.summary %>
+        <%= link_to 'Edit', :controller => 'posts', :action => 'edit' %>
+        </label>  
       </div>
     <% end %>
 
@@ -72,10 +74,12 @@
         <div class="demo-content"> 
           <tr>
             <td width="700", text-align="center"><b>URL<%= simple_format(@post.url) %></b></td>
+            <br>
             <td width="700", text-align="center">COMMENT<b><%= simple_format(@post.comment) %></b></td>
           </tr>
         </div>
       </div>
     </div>
+
 <p><%= link_to 'Back to index', :controller => 'groups', :action => 'index' %></p>
 

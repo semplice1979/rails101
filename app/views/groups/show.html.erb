@@ -1,5 +1,4 @@
 <div class="col-md-12">
-  <%= 123 %>
   <div class="group">
     <% if @group.editable_by?(current_user) %>
       <%= link_to 'Close item!', { :action => "close" }, :class => "btn btn-warning pull-right" %>
@@ -99,13 +98,13 @@
 
     <li> close_item 
     <% @close_item.each do |post| %>
-      <% "close_item" %><%= link_to("#{post.id}",
+      <%= link_to("#{post.id}",
           group_post_path(post.group, post), 
           :class => "btn btn-default btn-xs")%>  <% end %>
     </li>
     <li> suggest_item 
     <% @sugg_item.each do |post| %>
-      <% "close_item" %><%= link_to("#{post.id}",
+      <%= link_to("#{post.id}",
           group_post_path(post.group, post), 
           :class => "btn btn-default btn-xs")%>  <% end %>
     </li>
