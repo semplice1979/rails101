@@ -1,31 +1,34 @@
 
-<ul>
-
-<% @scodes.each do |line| %>
-
-<table border="1">
-<li>
-<tr> <%= "Desciption : " + line.description %>
-
-<td width="20"><%= line.id %></td>
-
-<td width="350", height="130"><%= line.content %></td>  
-  
-  
-  
-  <td width="50"><%= link_to 'Show', :controller => 'scodes', :action => 'show', :id => line %></td>
-  <td width="50"><%= link_to 'Edit', :controller => 'scodes', :action => 'edit', :id => line %></td>
-  <%# link_to 'Delete', :controller => 'scodes', :action => 'destroy', :id => line %>
-  <%# button_to 'delete', scode_path(line), :method => :delete %>
-  <td width="50"><%= link_to 'delete', scode_path(line), :method => :delete %></td>
-
- </tr>
-<% end %>
+<table border="2", width="1000">
+<tr>
+  <td width="20">  <b> id         </b></td>
+  <td width="150"> <b> Desciption </b></td>
+  <td width="500"> <b> content    </b></td>
+  <td width="240", align="center"><b> EDIT </b></td>
+</tr>
 </table>
-</li>
-</ul>
+
+<table border="1", width="1000">
+  <% @scodes.each do |line| %>
+  <tr> 
+    <td width="20", align="center"><%= line.id %></td>
+    <td width="150"> <%= line.description %> </td>
+    <td width="500", height="50"><%= line.content %></td>  
+    <td width="80"><%= link_to 'Show', line %></td>
+    <td width="80"><%= link_to 'Edit', edit_scode_path(line) %></td>
+    <td width="80"><%= link_to 'Destroy', line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+  </tr>
+</table>
+
+<%= link_to 'new scode', new_scode_path %>
 
 
+<% if false %>
+  <th colspan="3"></th>
+  <td width="80"><%= link_to 'Show', :controller => 'scodes', :action => 'show', :id => line %></td>
+  <td width="80"><%= link_to 'Edit', :controller => 'scodes', :action => 'edit', :id => line %></td>
+  <td width="80"><%= link_to 'delete', scode_path(line), :method => :delete %></td>
+<% end %>
 
-<%# link_to 'New items', :controller => 'scodes', :action => 'new' %>
-<%= link_to 'new event', new_scode_path %>
+

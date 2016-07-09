@@ -1,12 +1,19 @@
-<table border="1">
 
-
-<%= @scode.comment %>
-<tr>
-<td width="150", align="center"><%= simple_format(@scode.description) %></td>
-<td><%= simple_format(@scode.content) %></td>
-<td><%= simple_format(@scode.require) %></td>
-</tr>
+<table border="1", width="600">
+  <tr>
+    <td width="150"> comment </td>
+   	<td width="150"> desciption </td>
+	<td width="150"> content  </td>
+	<td width="150"> require </td>
+  </tr>
 </table>
-<p><%# link_to 'Back to index', :controller => 'scodes', :action => 'index' %></p>
-<p><%= link_to 'back to index', scodes_path %></p>
+<table border="1", width="600">
+  <tr>
+    <td width="150"> <%= @scode.comment %> </td>
+    <td width="150", align="center"><%= simple_format(@scode.description) %></td>
+    <td width="150"><%= simple_format(@scode.content) %></td>
+    <td width="150"><%= simple_format(@scode.require) %></td>
+  </tr>
+</table>
+
+<%= link_to 'Back to index', :controller => 'scodes', :action => 'index' %></p>
