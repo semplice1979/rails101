@@ -1,8 +1,37 @@
 == README
 
-account1 : user_experience@yes123.com.tw   password：12345678
+You can see the setup in readme.pdf
 
-account2 : example@gmail.com               password：12345678
+Different for MAC and windows, 
+you need change the file ./gemfile
+comment the 'gem pg' to '#gem pg'
+ #gem 'pg'
+
+
+attach file item:
+終端機 (Terminal)　
+1.	Git clone https://github.com/semplice1979/rails101.git  your_folder
+2.	bundle insatall 
+3.	cd your_folder
+4.	rails s
+
+chrome
+5.	http://192.168.5.100:3000/  => your_ip or http://localhost:3000/
+6.	logup a new user
+ 
+7.	Group page (問題分類：ex:生產製造問題，研發問題，客戶回覆問題)
+ 
+8.	Post page
+ 
+9.	Status for  (open , fix, verify, close, suggest)
+Open & fix & verify in work issue. 
+close & suggest in close page.
+
+10.	Close page
+
+11.	Post show
+
+
 
 
 
