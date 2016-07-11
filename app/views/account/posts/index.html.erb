@@ -1,5 +1,5 @@
 <div class="col-md-12">
-
+<%# ["ID", "Platform", "Priority", "Category", "Content",  "Status", "Created_at", "Comment", "Reporter", "Url" ,"Summary", "Edit"] %>
   <h2 class="text-center"> The POST that I've post 
   <%= link_to '結案區', { :controller => '/account/posts', :action => 'closed' }, :class => "btn btn-default btn-xs"  %>
   </h2>
@@ -7,15 +7,15 @@
   <table class="table">
     <thead>
       <tr>
-        <th width="50">id</th>
-        <th width="80">Platform </th>
-        <th width="40">Pri. </th>        
+        <th width="50">  <%= "#{$post_para_display[0]}" %> </th>
+        <th width="80">  <%= "#{$post_para_display[1]}" %> </th>
+        <th width="40">  <%= "#{$post_para_display[2]}" %> </th>        
         <th width="100"> Group Name </th>
-        <th width="500"> Content </th>
-        <th width="100">status</th>
+        <th width="500"> <%= "#{$post_para_display[4]}" %> </th>
+        <th width="100"> <%= "#{$post_para_display[5]}" %> </th>
         <th width="100"> Last Update </th>
-        <th width="350">comment</th>
-        <th width="150">Edit</th>
+        <th width="350"> <%= "#{$post_para_display[7]}" %> </th>
+        <th width="150"> <%= "#{$post_para_display[11]}" %></th>
       </tr>
     </thead>
     

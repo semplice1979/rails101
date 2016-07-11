@@ -18,17 +18,15 @@
 	<th>Modified Time</th>
 </tr>
 <% @events.each do |event| %>
-  <tr><li>
+  <tr>
     <td height="30", width="100"><%= link_to event.name %></td>
 	<td width="10"><%= event.id %></td>
 	<td width="100"><%= link_to 'show', event_path(event) %></td>
     <td width="100"><%= link_to 'edit', edit_event_path(event) %></td>
     <td width="100"><%= button_to 'delete', event_path(event), :method => :delete %></td>
-	
 	<td width="100"><%= event.created_at %></td>
 	<td width="100"><%= event.updated_at %></td>
-	
-  </li></tr>
+  </tr>
 <% end %>
 
 </ul>

@@ -3,23 +3,22 @@
 <div class="col-md-4 col-md-offset-4">
   <%= simple_form_for [@group,@post] do |f| %>
 
-    <label> <%= "Platform" %> </label>  
-    <%= f.select(:explorer, options_for_select([['Platform', 'Platform'],['Chrome', 'Chrome'], ['Firefox', 'Firefox'],['IE', 'IE'], ['Android', 'Android'], ['iOS', 'iOS'], ['M版', 'M版'],['其他', '其他']], 'Platform')) %>         
+    <label> <%= "#{$post_para_display[1]}" %> </label>  
+    <%= f.select(:explorer, options_for_select([['Platform', 'Platform'],['Chrome', 'Chrome'], ['Firefox', 'Firefox'],['IE', 'IE'], ['Android', 'Android'], ['iOS', 'iOS'], ['M版', 'M版'],['其他', '其他']], @post.explorer  )) %>         
+    <br>  <label> <%= "#{$post_para_display[2]}" %> </label>
+    <%= f.select(:priority, options_for_select([[0, 0],[1, 1], [2, 2],[3, 3], [4, 4]], @post.priority)) %> 
 
-    <br>  <label> <%= "Priority" %> </label>
-    <%= f.select(:priority, options_for_select([[0, 0],[1, 1], [2, 2],[3, 3], [4, 4]], 0)) %> 
+    <br>  <label> <%= "#{$post_para_display[5]}" %> </label>
+    <%= f.select(:status, options_for_select([['status', 'status'],['open', 'open'], ['fix', 'fix'],['verify', 'verify'], ['close', 'close'], ['suggest', 'suggest']], @post.status)) %>
 
-    <br>  <label> <%= "Status" %> </label>
-    <%= f.select(:status, options_for_select([['status', 'status'],['open', 'open'], ['fix', 'fix'],['verify', 'verify'], ['close', 'close'], ['suggest', 'suggest']], 'status')) %>
+    <br>  <label> <%= "#{$post_para_display[8]}" %> </label>      
+    <%= f.select(:reporter, options_for_select([['Reporter', 'Reporter'], ['Sam', 'Sam'],['Jacky', 'Jacky'], ['Alice', 'Alice'],['Jason', 'Jason'], ['Tom', 'Tom']], @post.reporter)) %>    
 
-    <br>  <label> <%= "Reporter" %> </label>      
-    <%= f.select(:reporter, options_for_select([['Reporter', 'Reporter'], ['Sam', 'Sam'],['星同', '星同'], ['曼萍', '曼萍'],['小谷', '小谷'], ['思文', '思文']], 'Reporter')) %>
-
-    <%= f.input :summary,  :input_html  => { :class => "form-control"} %>  
-	<%= f.input :content,  :input_html  => { :class => "form-control"} %>
-    <%= f.input :url    ,  :input_html  => { :class => "form-control"} %>	
-    <%= f.input :category, :input_html  => { :class => "form-control"} %>	
-    <%= f.input :comment,  :input_html  => { :class => "form-control"} %>
+    <%= f.input :summary,label: "#{$post_para_display[10]}", :input_html  => { :class => "form-control"} %>  
+    <%= f.input :content,label: "#{$post_para_display[4]}", :input_html  => { :class => "form-control"} %>
+    <%= f.input :url,label: "#{$post_para_display[9]}", :input_html      => { :class => "form-control"} %> 
+    <%= f.input :category,label: "#{$post_para_display[3]}", :input_html => { :class => "form-control"} %> 
+    <%= f.input :comment,label: "#{$post_para_display[7]}", :input_html  => { :class => "form-control"} %>
 
     <div class="form-actions">
       <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary"%> 

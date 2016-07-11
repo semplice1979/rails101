@@ -2,19 +2,19 @@
 
   <th class="text-center"> <b>結案區</b></th>
 
-
+<%# ["ID", "Platform", "Priority", "Category", "Content",  "Status", "Created_at", "Comment", "Reporter", "Url" ,"Summary", "Edit"] %>
   <div class="group">
   <table class="table">
     <tbody>
       <tr>
-        <td width="50">  id         </td>
-        <td width="60">  Platform   </td>
-        <td width="40">  Pri        </td>
-        <td width="80">  category   </td>
-        <td width="400"> content    </td>
-        <td width="100"> status     </td>      
-        <td width="400"> comment    </td>
-        <td width="150"> Edit       </td>           
+        <td width="50">  <%= "#{$post_para_display[0]}" %>    </td>
+        <td width="60">  <%= "#{$post_para_display[1]}" %>    </td>
+        <td width="40">  <%= "#{$post_para_display[2]}" %>    </td>
+        <td width="80">  <%= "#{$post_para_display[3]}" %>    </td>
+        <td width="400"> <%= "#{$post_para_display[4]}" %>    </td>
+        <td width="100"> <%= "#{$post_para_display[5]}" %>    </td>      
+        <td width="400"> <%= "#{$post_para_display[7]}" %>    </td>
+        <td width="150"> <%= "#{$post_para_display[11}" %>    </td>           
       </tr>
       <tr>
         <td>   </td>

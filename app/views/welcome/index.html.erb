@@ -10,6 +10,10 @@
         <li><%= link_to("My Groups" , account_groups_path) %></li>
         <li><%= link_to("My Posts"  , account_posts_path) %></li>
         <li><%= link_to("Area"    , groups_path) %></li>
+        
+        <% if current_user.id == 1 %>
+        <li>  <%= link_to('User', :controller => 'users', :action => 'index') %> </li>
+        <% end %>
 
         <br></br>
         <%= "NEW AREA" %>

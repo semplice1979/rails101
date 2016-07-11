@@ -2,17 +2,19 @@
 
 You can see the setup in readme.pdf
 
-Different for MAC and windows, 
-you need change the file ./gemfile
-comment the 'gem pg' to '#gem pg'
- #gem 'pg'
+一、MAC安裝與WINDOW安裝不同：
+路徑：/your_folder../gemfile
+做法：註解 gem pg   "pg"這個部份在MAC有安裝問題，可以選擇註解。
+
+二、你可以修改你的選單  路徑：/your_folder../app/views/posts/new.html.erb
+					項目：Platform, Priority, Status, Report
 
 
 attach file item:
 終端機 (Terminal)　
-1.	Git clone https://github.com/semplice1979/rails101.git  your_folder
-2.	bundle insatall 
-3.	cd your_folder
+1.	Git clone https://github.com/semplice1979/rails101.git  "your_folder"
+2.	bundle install 
+3.	cd "your_folder" (說明：上面說的路徑皆在這個路徑之下)
 4.	rails s
 
 chrome

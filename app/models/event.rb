@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
     scope :recent_three_days, where(["created_at > ? ", Time.now - 3.days ])
 end
 
-Event.create( :name => "public event", :is_public => true )
+Event.create( :name => "public event",  :is_public => true )
 Event.create( :name => "private event", :is_public => false )
 Event.create( :name => "private event", :is_public => true )
 
