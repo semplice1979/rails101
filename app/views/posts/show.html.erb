@@ -26,7 +26,7 @@
   <% end %>
 
       <strong><%= @post.id %></strong>.  
-      概述: <label><%= @post.summary %></label>
+      <%= "#{$post_para_china[10]}: " %> <label><%= @post.summary %></label>
       <p align="right"><%= link_to 'Edit', :controller => 'posts', :action => 'edit' %> </p>
     </div>
 
@@ -35,24 +35,24 @@
         <div class="demo-content"> 
 
         <tr>
-           分類 <td> <%= simple_format(@post.category) %> </b></td>
+           <%= "#{$post_para_china[3]}: " %> <td> <%= simple_format(@post.category) %> </b></td>
                       
-          <td> 描述  
+          <td> <%= "#{$post_para_china[4]}: " %>
           <%= simple_format(@post.content) %></td>
 
         </tr>
         </div>
-
+<%# $post_para_china = ["ID", "使用平台", "優先性", "分類", "描述", "狀態", "創建日期", "備註", "提報人", "url" ,"概述"] %>
 
       </div>
       <div class="col-xs-3">
         <div class="demo-content bg-alt">
             <label>
-            <%= simple_format("使用平台: " + "#{@post.explorer.to_s}") %>
-            <%= simple_format("優先性: "   + "#{@post.priority.to_s}") %> 
-            <%= simple_format("狀態:   "   + "#{@post.status.to_s}") %>   
-            <%= simple_format("提報人: "   + "#{@post.reporter.to_s}") %>
-            <%= simple_format("創建日期: " + "#{@post.created_at.to_s}") %>
+            <%= simple_format("#{$post_para_china[1]}: " + "#{@post.explorer.to_s}") %>
+            <%= simple_format("#{$post_para_china[2]}: " + "#{@post.priority.to_s}") %> 
+            <%= simple_format("#{$post_para_china[5]}: " + "#{@post.status.to_s}") %>   
+            <%= simple_format("#{$post_para_china[8]}: " + "#{@post.reporter.to_s}") %>
+            <%= simple_format("#{$post_para_china[6]}: " + "#{@post.created_at.to_s}") %>
             </label> 
         </div>
       </div>
@@ -62,9 +62,9 @@
       <div class="col-xs-10">
         <div class="demo-content"> 
           <tr>
-            <td width="700", text-align="center">URL or SW version<%= simple_format(@post.url) %></td>
+            <td width="700", text-align="center"><%= "#{$post_para_china[9]}" %><%= simple_format(@post.url) %></td>
             <br>
-            <td width="700", text-align="center">備註<b><%= simple_format(@post.comment) %></b></td>
+            <td width="700", text-align="center"><%= "#{$post_para_china[7]}: " %> <b><%= simple_format(@post.comment) %></b></td>
           </tr>
         </div>
       </div>

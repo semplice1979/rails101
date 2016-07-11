@@ -1,14 +1,12 @@
 
 <table border="2", width="1000">
-<tr>
-  <td width="20">  <b> id         </b></td>
-  <td width="150"> <b> Desciption </b></td>
-  <td width="500"> <b> content    </b></td>
-  <td width="240", align="center"><b> EDIT </b></td>
-</tr>
-</table>
+  <tr>
+    <td width="20">  <b> id         </b></td>
+    <td width="150"> <b> Desciption </b></td>
+    <td width="500"> <b> content    </b></td>
+    <td width="240", align="center", colspan ="3"><b> EDIT </b></td>
+  </tr>
 
-<table border="1", width="1000">
   <% @scodes.each do |line| %>
   <tr> 
     <td width="20", align="center"><%= line.id %></td>
