@@ -2,6 +2,30 @@
 
   <th class="text-center"> <b>結案區</b></th>
   <br>
+
+<%= form_tag edit_multiple_groups_path, method: :get do %>
+  <table>
+    <tr>
+      <td></td>
+      <td>summary</td>
+      <td>url</td>
+      <td>reporter</td>
+    </tr>
+  <% @posts.each do |post| %>
+  <tr>
+    <td> <%= check_box_tag "post_ids[]", post.id %> </td>
+    <td> <%= post.summary %>  </td>
+    <td> <%= post.url %>  </td>
+    <td> <%= post.reporter %>  </td>
+  </tr>
+  <% end %>
+</table>
+<%= submit_tag "Edit checked" %> 
+<% end %>
+
+
+
+<% if false %>
   <% form_tag  :method => :put do %> 
   <% for post in @posts %>
       <%= check_box_tag "post_stas[]", post.id %>
@@ -10,7 +34,7 @@
   <% end %>
   <br>
   <%= submit_tag "Mark as Complete" %>
-  <%#= puts post_sta %>
+<% end %>
 
 <%# ["ID", "Platform", "Priority", "Category", "Content",  "Status", "Created_at", "Comment", "Reporter", "Url" ,"Summary", "Edit"] %>
   <div class="group">
@@ -86,5 +110,29 @@
 
 
 
+
+
+
+
+
+
+
+
 <%= Time.now %>
 <p><%= link_to 'Back page', :controller => 'groups', :action => 'show' %></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

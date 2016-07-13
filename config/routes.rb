@@ -12,7 +12,12 @@ Rails.application.routes.draw do
       post :join
       post :quit
     end
+    collection do
+      get :edit_multiple
+      puts :update_multiple
+    end
     resources :posts
+
   end
 
   get "welcome/say_hello" => "welcome#say"

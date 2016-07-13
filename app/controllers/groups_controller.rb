@@ -17,6 +17,13 @@ before_action :login_required, :only => [:new, :create, :edit,:update,:destroy]
   end
   #@posts = @group.posts
   #@fil = params[:postfil]
+  def edit_multiple 
+    @post = Post.find(params[:post_ids])
+  end
+  def update_multiple
+    @post = Post.update(params[:post].keys, params[:post].value)
+    redirect_to groups_url
+  end
   def new
     @group = Group.new
   end
