@@ -1,76 +1,24 @@
     
   <h2 class="text-center"> <b>Close Area</b></h2>
-
-  <table class="table">
-    <thead>
-      <tr>
-
-        <th colspan="">  </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-<%# ["ID", "Platform", "Priority", "Category", "Content",  "Status", "Created_at", "Comment", "Reporter", "Url" ,"Summary", "Edit"] %>
-        <td width="50">  <%= "#{$post_para_display[0]}" %>     </td>
-        <td width="80">  <%= "#{$post_para_display[1]}" %>     </td>
-        <td width="40">  <%= "#{$post_para_display[2]}" %>     </td>
-        <td width="80">  <%= "#{$post_para_display[3]}" %>     </td>
-        <td width="400"> <%= "#{$post_para_display[4]}" %>     </td>
-        <td width="100"> <%= "#{$post_para_display[5]}" %>     </td>
-        <td width="100"> <%= "#{$post_para_display[6]}" %>     </td>
-        <td width="300"> <%= "#{$post_para_display[7]}" %>     </td>
-        <td width="150"> <%= "#{$post_para_display[11]}" %>    </td>
-      </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>  
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr> 
-
-    <% @posts.each do |post| %> 
-      <% if post.status == "close" %>
-      <% else %>
-        <% if post.status == "suggest" %>
-        <% else %>
-          <% next %>
-        <% end %>
-      <% end %>
-      <tr>
-      <td>
-          <%= link_to("#{post.id}",
-                group_post_path(post.group, post),
-                :class => "btn btn-default btn-xs")%>  </td>
-      <td>    <%= post.explorer %> </td>
-      <td>    <%= post.priority %> </td>
-      <td>    <%= post.category %> </td>
-      <td>    <%= post.content %>  </td>
-      <td>    <%= post.status %>   </td>
-      <td>    
-      <%  a = post.created_at.to_s  %>
-      <%= a[2..10] %> </td>
-      
-        <td><%= post.comment %></td>
-        <td>
-        <%= link_to('Edit', 
-                  edit_group_post_path(post.group, post),
-                  :class => "btn btn-info btn-xs") %>
-        <%= link_to('Delete', 
-                  group_post_path(post.group, post),
-                  :method => :delete, 
-                  data: { confirm: "Are you sure?" },
-                  :class => "btn btn-danger btn-xs") %>
-        </td>
-      
-      
-      
-    </tr>
-    <% end %> 
+<% if false %>
+<% form_tag complete_posts_path, :method => :put do %>
+  <ul>
+  <% for task in @incomplete_tasks %>
+    <li>
+      <%= check_box_tag "task_ids[]", task.id %>
+      <%= task.name %>
+    </li>
+  <% end %>
+  </ul>
+  <%= submit_tag "Mark as Complete" %>
+<% end %>
+<% end %>
 
 
 
-    </tbody>
-  </table>
+
+  <%= render 'accountpost' %>
+
+
+
+

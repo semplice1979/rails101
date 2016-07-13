@@ -3,6 +3,7 @@ module ApplicationHelper
   $post_para_display = ["ID", "Platform", "Priority", "Category", "Content", "Status", "Created_at", "Comment", "Reporter", "Url" ,"Summary", "Edit"]
   $post_para_database = ["ID", "explorer", "Priority", "category", "content", "status", "created_at", "comment", "Reporter", "url" ,"summary"]
   $post_para_china = ["ID", "使用平台", "優先性", "分類", "描述", "狀態", "創建日期", "備註", "提報人", "網址或軟體版本" ,"概述"]
+  $post_status = ["open","fix","verify","close","suggest"]
 
 end
 

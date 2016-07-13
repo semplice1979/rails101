@@ -9,7 +9,14 @@ class Account::PostsController < ApplicationController
   def show 
   	@posts = current_user.posts
   end
-  
+  def closed
+  	@posts = current_user.posts
+  end
+  def complete
+    #Post.update_all(["completed_at=?", Time.now], :status => params[:post_stas])
+  end
+
+
 
 end
 

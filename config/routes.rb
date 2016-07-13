@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :groups
     resources :posts
       get "/posts/closed" => "posts#closed"
+      get "/posts/show" => "posts#show"
   end
 
 end

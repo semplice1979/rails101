@@ -7,9 +7,9 @@
     <%= f.select(:explorer, options_for_select([['Platform', 'Platform'],['Chrome', 'Chrome'], ['Firefox', 'Firefox'],['IE', 'IE'], ['Android', 'Android'], ['iOS', 'iOS'], ['M版', 'M版'],['其他', '其他']], @post.explorer  )) %>         
     <br>  <label> <%= "#{$post_para_display[2]}" %> </label>
     <%= f.select(:priority, options_for_select([[0, 0],[1, 1], [2, 2],[3, 3], [4, 4]], @post.priority)) %> 
-
+  <%#["open","fix","verify","close","suggest"] "#{$post_status[0]}" %>
     <br>  <label> <%= "#{$post_para_display[5]}" %> </label>
-    <%= f.select(:status, options_for_select([['status', 'status'],['open', 'open'], ['fix', 'fix'],['verify', 'verify'], ['close', 'close'], ['suggest', 'suggest']], @post.status)) %>
+    <%= f.select(:status, options_for_select([['status', 'status'],["#{$post_status[0]}", "#{$post_status[0]}"], ["#{$post_status[1]}", "#{$post_status[1]}"],["#{$post_status[2]}", "#{$post_status[2]}"], ["#{$post_status[3]}", "#{$post_status[3]}"], ["#{$post_status[4]}", "#{$post_status[4]}"]], @post.status)) %>
 
     <br>  <label> <%= "#{$post_para_display[8]}" %> </label>      
     <%= f.select(:reporter, options_for_select([['Reporter', 'Reporter'], ['Sam', 'Sam'],['Jacky', 'Jacky'], ['Alice', 'Alice'],['Jason', 'Jason'], ['Tom', 'Tom']], @post.reporter)) %>    

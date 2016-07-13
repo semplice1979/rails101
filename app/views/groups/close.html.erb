@@ -1,6 +1,16 @@
 <div class="col-md-12">
 
   <th class="text-center"> <b>結案區</b></th>
+  <br>
+  <% form_tag  :method => :put do %> 
+  <% for post in @posts %>
+      <%= check_box_tag "post_stas[]", post.id %>
+      <%= post.status %>
+  <% end %>
+  <% end %>
+  <br>
+  <%= submit_tag "Mark as Complete" %>
+  <%#= puts post_sta %>
 
 <%# ["ID", "Platform", "Priority", "Category", "Content",  "Status", "Created_at", "Comment", "Reporter", "Url" ,"Summary", "Edit"] %>
   <div class="group">
@@ -14,7 +24,7 @@
         <td width="400"> <%= "#{$post_para_display[4]}" %>    </td>
         <td width="100"> <%= "#{$post_para_display[5]}" %>    </td>      
         <td width="400"> <%= "#{$post_para_display[7]}" %>    </td>
-        <td width="150"> <%= "#{$post_para_display[11}" %>    </td>           
+        <td width="150"> <%= "#{$post_para_display[11]}" %>   </td>           
       </tr>
       <tr>
         <td>   </td>
