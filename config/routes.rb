@@ -14,10 +14,9 @@ Rails.application.routes.draw do
     end
     collection do
       get :edit_multiple
-      puts :update_multiple
+      put :update_multiple
     end
     resources :posts
-
   end
 
   get "welcome/say_hello" => "welcome#say"
@@ -30,7 +29,6 @@ Rails.application.routes.draw do
     resources :groups
     resources :posts
       get "/posts/closed" => "posts#closed"
-      get "/posts/show" => "posts#show"
   end
 
 end
